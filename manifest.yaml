@@ -1,0 +1,40 @@
+version: 0.0.8
+type: plugin
+author: ldxhub-io
+name: ldxhub
+label:
+  en_US: LDX hub
+  ja_JP: LDX hub
+  zh_Hans: LDX hub
+  pt_BR: LDX hub
+description:
+  en_US: LDX hub tools for document processing, translation refinement, and structured
+    data extraction
+  ja_JP: LDX hub tools for document processing, translation refinement, and structured
+    data extraction
+  zh_Hans: LDX hub tools for document processing, translation refinement, and structured
+    data extraction
+  pt_BR: LDX hub tools for document processing, translation refinement, and structured
+    data extraction
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+plugins:
+  tools:
+  - provider/ldxhub.yaml
+meta:
+  version: 0.0.8
+  arch:
+  - amd64
+  - arm64
+  runner:
+    language: python
+    version: '3.12'
+    entrypoint: main
+  minimum_dify_version: null
+created_at: 2026-04-23T05:51:00.849363+09:00
+privacy: PRIVACY.md
+verified: false

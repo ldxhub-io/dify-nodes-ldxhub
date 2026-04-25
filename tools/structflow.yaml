@@ -1,0 +1,170 @@
+identity:
+  name: "structflow"
+  author: "ldxhub-io"
+  label:
+    en_US: "StructFlow"
+    zh_Hans: "StructFlow"
+    pt_BR: "StructFlow"
+    ja_JP: "StructFlow"
+description:
+  human:
+    en_US: "Extract structured JSON data from a JSONL file using AI models. Upload a JSONL file with input records, define the extraction schema with system prompt and example output, and get a JSONL file of structured outputs back."
+    zh_Hans: "使用 AI 模型从 JSONL 文件中提取结构化 JSON 数据。上传包含输入记录的 JSONL 文件,通过系统提示词和示例输出定义抽取结构,即可获取结构化的 JSONL 输出。"
+    pt_BR: "Extraia dados JSON estruturados de um arquivo JSONL usando modelos de IA. Envie um JSONL com registros de entrada, defina o esquema de extração com prompt de sistema e exemplo de saída, e receba um JSONL com saídas estruturadas."
+    ja_JP: "AIモデルでJSONLファイルから構造化JSONデータを抽出します。入力レコードを含むJSONLファイルをアップロードし、システムプロンプトと出力例で抽出スキーマを定義すると、構造化されたJSONLが返されます。"
+  llm: "Extracts structured JSON data from a JSONL file of input records using AI language models. Takes a JSONL file plus a system prompt and an example output object, returns a JSONL file with one structured JSON object per input record."
+parameters:
+  - name: file
+    type: file
+    required: true
+    label:
+      en_US: JSONL file
+      zh_Hans: JSONL 文件
+      pt_BR: Arquivo JSONL
+      ja_JP: JSONLファイル
+    human_description:
+      en_US: "The JSONL file containing input records to process"
+      zh_Hans: "包含待处理输入记录的 JSONL 文件"
+      pt_BR: "O arquivo JSONL com os registros de entrada a processar"
+      ja_JP: "処理対象の入力レコードを含むJSONLファイル"
+    llm_description: "The JSONL file containing input records, one JSON object per line"
+    form: form
+
+  - name: model
+    type: select
+    required: true
+    label:
+      en_US: Model
+      zh_Hans: 模型
+      pt_BR: Modelo
+      ja_JP: モデル
+    human_description:
+      en_US: "AI model to use for extraction"
+      zh_Hans: "用于抽取的 AI 模型"
+      pt_BR: "Modelo de IA para extração"
+      ja_JP: "抽出に使用するAIモデル"
+    llm_description: "The AI model identifier to use for structured extraction"
+    form: form
+    options:
+      - value: openai/gpt-5.4
+        label:
+          en_US: OpenAI GPT-5.4
+          zh_Hans: OpenAI GPT-5.4
+          pt_BR: OpenAI GPT-5.4
+          ja_JP: OpenAI GPT-5.4
+      - value: openai/gpt-5.4-mini
+        label:
+          en_US: OpenAI GPT-5.4 mini
+          zh_Hans: OpenAI GPT-5.4 mini
+          pt_BR: OpenAI GPT-5.4 mini
+          ja_JP: OpenAI GPT-5.4 mini
+      - value: azure/gpt-5.4
+        label:
+          en_US: Azure OpenAI GPT-5.4
+          zh_Hans: Azure OpenAI GPT-5.4
+          pt_BR: Azure OpenAI GPT-5.4
+          ja_JP: Azure OpenAI GPT-5.4
+      - value: azure/gpt-5.4-mini
+        label:
+          en_US: Azure OpenAI GPT-5.4 mini
+          zh_Hans: Azure OpenAI GPT-5.4 mini
+          pt_BR: Azure OpenAI GPT-5.4 mini
+          ja_JP: Azure OpenAI GPT-5.4 mini
+      - value: google/gemini-3.1-pro-preview
+        label:
+          en_US: Google Gemini 3.1 Pro Preview
+          zh_Hans: Google Gemini 3.1 Pro Preview
+          pt_BR: Google Gemini 3.1 Pro Preview
+          ja_JP: Google Gemini 3.1 Pro Preview
+      - value: google/gemini-3-flash-preview
+        label:
+          en_US: Google Gemini 3 Flash Preview
+          zh_Hans: Google Gemini 3 Flash Preview
+          pt_BR: Google Gemini 3 Flash Preview
+          ja_JP: Google Gemini 3 Flash Preview
+      - value: anthropic/claude-sonnet-4-6
+        label:
+          en_US: Claude Sonnet 4.6
+          zh_Hans: Claude Sonnet 4.6
+          pt_BR: Claude Sonnet 4.6
+          ja_JP: Claude Sonnet 4.6
+      - value: bedrock/global.amazon.nova-2-lite-v1:0
+        label:
+          en_US: Amazon Nova 2 Lite (Bedrock)
+          zh_Hans: Amazon Nova 2 Lite (Bedrock)
+          pt_BR: Amazon Nova 2 Lite (Bedrock)
+          ja_JP: Amazon Nova 2 Lite (Bedrock)
+      - value: xai/grok-4.20-non-reasoning
+        label:
+          en_US: xAI Grok 4.20 (Non-Reasoning)
+          zh_Hans: xAI Grok 4.20 (Non-Reasoning)
+          pt_BR: xAI Grok 4.20 (Non-Reasoning)
+          ja_JP: xAI Grok 4.20 (Non-Reasoning)
+
+  - name: system_prompt
+    type: string
+    required: true
+    label:
+      en_US: System prompt
+      zh_Hans: 系统提示词
+      pt_BR: Prompt de sistema
+      ja_JP: システムプロンプト
+    human_description:
+      en_US: "Instructions describing what to extract from each input record"
+      zh_Hans: "描述需要从每条输入记录中抽取什么信息的指令"
+      pt_BR: "Instruções descrevendo o que extrair de cada registro de entrada"
+      ja_JP: "各入力レコードから何を抽出するかを記述した指示文"
+    llm_description: "System prompt that describes the extraction task. Tells the model what to extract from each input record."
+    form: form
+
+  - name: example_output
+    type: string
+    required: true
+    label:
+      en_US: Example output (JSON)
+      zh_Hans: 示例输出(JSON)
+      pt_BR: Exemplo de saída (JSON)
+      ja_JP: 出力例(JSON)
+    human_description:
+      en_US: "Example JSON object showing the desired output structure (will be parsed as JSON)"
+      zh_Hans: "展示期望输出结构的 JSON 对象示例(将被解析为 JSON)"
+      pt_BR: "Objeto JSON de exemplo mostrando a estrutura de saída desejada (será interpretado como JSON)"
+      ja_JP: "期待する出力構造を示すJSONオブジェクトの例 (JSONとしてパースされます)"
+    llm_description: "A JSON object literal showing the desired output structure with example values. Must be valid JSON."
+    form: form
+
+  - name: webhook_url
+    type: string
+    required: false
+    label:
+      en_US: Webhook URL (async mode)
+      zh_Hans: Webhook URL(异步模式)
+      pt_BR: URL de Webhook (modo assíncrono)
+      ja_JP: Webhook URL(非同期モード)
+    human_description:
+      en_US: "If specified, the tool returns immediately after submitting the job. Completion will be notified via POST to this URL. Useful for long-running jobs that exceed Dify's timeout. Note: Server-side webhook delivery is currently being implemented; sync polling works normally in the meantime."
+      zh_Hans: "如果指定此 URL,工具将在提交任务后立即返回。完成后通过 POST 通知该 URL。适用于超过 Dify 超时的长时间任务。注意:服务器端的 Webhook 配送功能目前正在实施中,同步轮询正常工作。"
+      pt_BR: "Se especificado, a ferramenta retorna imediatamente após submeter o job. A conclusão será notificada via POST para esta URL. Útil para jobs longos que excedem o timeout do Dify. Nota: A entrega de webhook no servidor está sendo implementada; o polling síncrono funciona normalmente no momento."
+      ja_JP: "指定すると、ジョブ投入後すぐに制御を返します。完了時にこのURLへPOSTで通知されます。Difyのタイムアウトを超える長時間ジョブに有用です。注: サーバ側のWebhook配信機能は現在実装準備中です。同期ポーリングは通常通り動作します。"
+    llm_description: "Optional webhook URL for async mode. If set, the tool returns immediately and LDX hub will POST the result to this URL on completion."
+    form: form
+
+  - name: webhook_secret
+    type: secret-input
+    required: false
+    label:
+      en_US: Webhook secret (optional)
+      zh_Hans: Webhook 密钥(可选)
+      pt_BR: Segredo do Webhook (opcional)
+      ja_JP: Webhookシークレット(オプション)
+    human_description:
+      en_US: "Optional secret for HMAC-SHA256 signature verification of webhook payloads"
+      zh_Hans: "用于 HMAC-SHA256 验证 Webhook 载荷签名的可选密钥"
+      pt_BR: "Segredo opcional para verificação de assinatura HMAC-SHA256 das cargas do Webhook"
+      ja_JP: "Webhookペイロードの HMAC-SHA256 署名検証用の任意シークレット"
+    llm_description: "Optional secret used by LDX hub to sign webhook payloads with HMAC-SHA256 (X-LDXhub-Signature header)"
+    form: form
+
+extra:
+  python:
+    source: tools/structflow.py

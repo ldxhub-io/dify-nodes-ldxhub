@@ -1,0 +1,275 @@
+identity:
+  name: "refineloop"
+  author: "ldxhub-io"
+  label:
+    en_US: "RefineLoop"
+    zh_Hans: "RefineLoop"
+    pt_BR: "RefineLoop"
+    ja_JP: "RefineLoop"
+description:
+  human:
+    en_US: "Improve XLIFF translation quality using AI models. Upload an XLIFF file, choose a model, and get refined translations back."
+    zh_Hans: "使用 AI 模型提高 XLIFF 翻译质量。上传 XLIFF 文件,选择模型,获取改进后的翻译。"
+    pt_BR: "Melhore a qualidade da tradução XLIFF usando modelos de IA. Envie um arquivo XLIFF, escolha um modelo e receba traduções refinadas."
+    ja_JP: "AIモデルでXLIFF翻訳の品質を改善します。XLIFFファイルをアップロードし、モデルを選択すると、改善された翻訳が返されます。"
+  llm: "Refines XLIFF translation quality using AI language models. Takes an XLIFF file as input and returns a refined XLIFF file with improved translations."
+parameters:
+  - name: file
+    type: file
+    required: true
+    label:
+      en_US: XLIFF file
+      zh_Hans: XLIFF 文件
+      pt_BR: Arquivo XLIFF
+      ja_JP: XLIFFファイル
+    human_description:
+      en_US: "The XLIFF file to refine"
+      zh_Hans: "要改进的 XLIFF 文件"
+      pt_BR: "O arquivo XLIFF a refinar"
+      ja_JP: "改善するXLIFFファイル"
+    llm_description: "The XLIFF file containing translations to be refined"
+    form: form
+
+  - name: model
+    type: select
+    required: true
+    label:
+      en_US: Model
+      zh_Hans: 模型
+      pt_BR: Modelo
+      ja_JP: モデル
+    human_description:
+      en_US: "AI model to use for refinement"
+      zh_Hans: "用于改进的 AI 模型"
+      pt_BR: "Modelo de IA para refinamento"
+      ja_JP: "改善に使用するAIモデル"
+    llm_description: "The AI model identifier to use for translation refinement"
+    form: form
+    options:
+      - value: openai/gpt-5.4
+        label:
+          en_US: OpenAI GPT-5.4
+          zh_Hans: OpenAI GPT-5.4
+          pt_BR: OpenAI GPT-5.4
+          ja_JP: OpenAI GPT-5.4
+      - value: openai/gpt-5.4-mini
+        label:
+          en_US: OpenAI GPT-5.4 mini
+          zh_Hans: OpenAI GPT-5.4 mini
+          pt_BR: OpenAI GPT-5.4 mini
+          ja_JP: OpenAI GPT-5.4 mini
+      - value: azure/gpt-5.4
+        label:
+          en_US: Azure OpenAI GPT-5.4
+          zh_Hans: Azure OpenAI GPT-5.4
+          pt_BR: Azure OpenAI GPT-5.4
+          ja_JP: Azure OpenAI GPT-5.4
+      - value: azure/gpt-5.4-mini
+        label:
+          en_US: Azure OpenAI GPT-5.4 mini
+          zh_Hans: Azure OpenAI GPT-5.4 mini
+          pt_BR: Azure OpenAI GPT-5.4 mini
+          ja_JP: Azure OpenAI GPT-5.4 mini
+      - value: google/gemini-3.1-pro-preview
+        label:
+          en_US: Google Gemini 3.1 Pro Preview
+          zh_Hans: Google Gemini 3.1 Pro Preview
+          pt_BR: Google Gemini 3.1 Pro Preview
+          ja_JP: Google Gemini 3.1 Pro Preview
+      - value: google/gemini-3-flash-preview
+        label:
+          en_US: Google Gemini 3 Flash Preview
+          zh_Hans: Google Gemini 3 Flash Preview
+          pt_BR: Google Gemini 3 Flash Preview
+          ja_JP: Google Gemini 3 Flash Preview
+      - value: anthropic/claude-sonnet-4-6
+        label:
+          en_US: Claude Sonnet 4.6
+          zh_Hans: Claude Sonnet 4.6
+          pt_BR: Claude Sonnet 4.6
+          ja_JP: Claude Sonnet 4.6
+      - value: bedrock/global.amazon.nova-2-lite-v1:0
+        label:
+          en_US: Amazon Nova 2 Lite (Bedrock)
+          zh_Hans: Amazon Nova 2 Lite (Bedrock)
+          pt_BR: Amazon Nova 2 Lite (Bedrock)
+          ja_JP: Amazon Nova 2 Lite (Bedrock)
+      - value: xai/grok-4.20-non-reasoning
+        label:
+          en_US: xAI Grok 4.20 (Non-Reasoning)
+          zh_Hans: xAI Grok 4.20 (Non-Reasoning)
+          pt_BR: xAI Grok 4.20 (Non-Reasoning)
+          ja_JP: xAI Grok 4.20 (Non-Reasoning)
+
+  - name: max_revisions
+    type: number
+    required: false
+    default: 6
+    min: 1
+    max: 10
+    label:
+      en_US: Max revisions
+      zh_Hans: 最大修订次数
+      pt_BR: Revisões máximas
+      ja_JP: 最大リビジョン数
+    human_description:
+      en_US: "Maximum number of revision rounds (1-10, default: 6)"
+      zh_Hans: "最大修订轮数(1-10,默认:6)"
+      pt_BR: "Número máximo de rodadas de revisão (1-10, padrão: 6)"
+      ja_JP: "最大リビジョン回数(1〜10、デフォルト:6)"
+    llm_description: "Maximum number of revision rounds (1-10)"
+    form: form
+
+  - name: domain
+    type: string
+    required: false
+    label:
+      en_US: Domain
+      zh_Hans: 领域
+      pt_BR: Domínio
+      ja_JP: ドメイン
+    human_description:
+      en_US: "Subject domain to guide translation review (e.g. IR, medical, legal, technical)"
+      zh_Hans: "指导翻译审核的领域(如:IR、医疗、法律、技术)"
+      pt_BR: "Domínio temático para orientar a revisão (ex: IR, médico, jurídico, técnico)"
+      ja_JP: "翻訳レビューの指針となる分野(例:IR、医療、法律、技術)"
+    llm_description: "Subject domain for the translation (e.g. IR, medical, legal, technical)"
+    form: form
+
+  - name: note_language
+    type: string
+    required: false
+    label:
+      en_US: Note language
+      zh_Hans: 备注语言
+      pt_BR: Idioma das notas
+      ja_JP: ノート言語
+    human_description:
+      en_US: "Language code for AI revision notes (e.g. ja, en, ko). Defaults to XLIFF source language."
+      zh_Hans: "AI 修订备注的语言代码(如:ja、en、ko)。默认为 XLIFF 源语言。"
+      pt_BR: "Código de idioma para notas de revisão (ex: ja, en, ko). Padrão: idioma-fonte do XLIFF."
+      ja_JP: "AIのリビジョンノートの言語コード(例:ja、en、ko)。デフォルトはXLIFFのソース言語。"
+    llm_description: "Language code for AI revision notes (ISO 639-1 codes like ja, en, ko)"
+    form: form
+
+  - name: output_mode
+    type: select
+    required: false
+    default: full
+    label:
+      en_US: Output mode
+      zh_Hans: 输出模式
+      pt_BR: Modo de saída
+      ja_JP: 出力モード
+    human_description:
+      en_US: "Controls what to include in the output XLIFF"
+      zh_Hans: "控制输出 XLIFF 中包含的内容"
+      pt_BR: "Controla o que incluir no XLIFF de saída"
+      ja_JP: "出力XLIFFに含める内容を制御"
+    llm_description: "Output mode: full (all revisions + notes), translations (all revision targets only), none (final only)"
+    form: form
+    options:
+      - value: full
+        label:
+          en_US: "Full (all revisions with notes)"
+          zh_Hans: "完整(所有修订和备注)"
+          pt_BR: "Completo (todas revisões com notas)"
+          ja_JP: "フル(全リビジョン+ノート)"
+      - value: translations
+        label:
+          en_US: "Translations only (all revision targets, no notes)"
+          zh_Hans: "仅翻译(所有修订目标,无备注)"
+          pt_BR: "Somente traduções (alvos de revisão, sem notas)"
+          ja_JP: "翻訳のみ(全リビジョンの訳文、ノートなし)"
+      - value: none
+        label:
+          en_US: "None (final only, no revision info)"
+          zh_Hans: "无(仅最终结果,无修订信息)"
+          pt_BR: "Nenhum (apenas final, sem info de revisão)"
+          ja_JP: "なし(最終結果のみ、リビジョン情報なし)"
+
+  - name: custom_instructions
+    type: string
+    required: false
+    label:
+      en_US: Custom instructions
+      zh_Hans: 自定义指令
+      pt_BR: Instruções personalizadas
+      ja_JP: カスタム指示
+    human_description:
+      en_US: "Additional instructions for the refinement"
+      zh_Hans: "额外的改进指令"
+      pt_BR: "Instruções adicionais para refinamento"
+      ja_JP: "改善のための追加指示"
+    llm_description: "Custom instructions for translation refinement"
+    form: form
+
+  - name: remove_hyphenation
+    type: boolean
+    required: false
+    default: true
+    label:
+      en_US: Remove hyphenation
+      zh_Hans: 移除连字符
+      pt_BR: Remover hifenização
+      ja_JP: ハイフネーションを除去
+    human_description:
+      en_US: "Remove hyphenation from source text before processing"
+      zh_Hans: "处理前从源文本中移除连字符"
+      pt_BR: "Remover hifenização do texto-fonte"
+      ja_JP: "処理前に原文のハイフネーションを除去する"
+    llm_description: "Whether to remove hyphenation from source text"
+    form: form
+
+  - name: exclude_numeric_segments
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Exclude numeric segments
+      zh_Hans: 排除数字段
+      pt_BR: Excluir segmentos numéricos
+      ja_JP: 数値セグメントを除外
+    human_description:
+      en_US: "Exclude segments that contain only numbers from refinement"
+      zh_Hans: "从改进中排除仅包含数字的段"
+      pt_BR: "Excluir segmentos que contêm apenas números"
+      ja_JP: "数値のみのセグメントを改善対象から除外する"
+    llm_description: "Whether to exclude segments containing only numbers"
+    form: form
+
+  - name: webhook_url
+    type: string
+    required: false
+    label:
+      en_US: Webhook URL (async mode)
+      zh_Hans: Webhook URL(异步模式)
+      pt_BR: URL de Webhook (modo assíncrono)
+      ja_JP: Webhook URL(非同期モード)
+    human_description:
+      en_US: "If specified, the tool returns immediately after submitting the job. Completion will be notified via POST to this URL. Useful for long-running jobs that exceed Dify's timeout. Note: Server-side webhook delivery is currently being implemented; sync polling works normally in the meantime."
+      zh_Hans: "如果指定此 URL,工具将在提交任务后立即返回。完成后通过 POST 通知该 URL。适用于超过 Dify 超时的长时间任务。注意:服务器端的 Webhook 配送功能目前正在实施中,同步轮询正常工作。"
+      pt_BR: "Se especificado, a ferramenta retorna imediatamente após submeter o job. A conclusão será notificada via POST para esta URL. Útil para jobs longos que excedem o timeout do Dify. Nota: A entrega de webhook no servidor está sendo implementada; o polling síncrono funciona normalmente no momento."
+      ja_JP: "指定すると、ジョブ投入後すぐに制御を返します。完了時にこのURLへPOSTで通知されます。Difyのタイムアウトを超える長時間ジョブに有用です。注: サーバ側のWebhook配信機能は現在実装準備中です。同期ポーリングは通常通り動作します。"
+    llm_description: "Optional webhook URL for async mode. If set, the tool returns immediately and LDX hub will POST the result to this URL on completion."
+    form: form
+
+  - name: webhook_secret
+    type: secret-input
+    required: false
+    label:
+      en_US: Webhook secret (optional)
+      zh_Hans: Webhook 密钥(可选)
+      pt_BR: Segredo do Webhook (opcional)
+      ja_JP: Webhookシークレット(オプション)
+    human_description:
+      en_US: "Optional secret for HMAC-SHA256 signature verification of webhook payloads"
+      zh_Hans: "用于 HMAC-SHA256 验证 Webhook 载荷签名的可选密钥"
+      pt_BR: "Segredo opcional para verificação de assinatura HMAC-SHA256 das cargas do Webhook"
+      ja_JP: "Webhookペイロードの HMAC-SHA256 署名検証用の任意シークレット"
+    llm_description: "Optional secret used by LDX hub to sign webhook payloads with HMAC-SHA256 (X-LDXhub-Signature header)"
+    form: form
+
+extra:
+  python:
+    source: tools/refineloop.py

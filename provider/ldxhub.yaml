@@ -1,0 +1,62 @@
+identity:
+  author: "ldxhub-io"
+  name: "ldxhub"
+  label:
+    en_US: "LDX hub"
+    zh_Hans: "LDX hub"
+    pt_BR: "LDX hub"
+    ja_JP: "LDX hub"
+  description:
+    en_US: "LDX hub tools for document processing, translation refinement, and structured data extraction"
+    zh_Hans: "LDX hub 用于文档处理、翻译改进和结构化数据提取的工具"
+    pt_BR: "Ferramentas LDX hub para processamento de documentos, refinamento de tradução e extração de dados estruturados"
+    ja_JP: "LDX hub - ドキュメント処理、翻訳品質改善、構造化データ抽出のためのツール"
+  icon: "icon.svg"
+
+credentials_for_provider:
+  base_url:
+    type: text-input
+    required: true
+    label:
+      en_US: Base URL
+      ja_JP: ベースURL
+      zh_Hans: 基础 URL
+      pt_BR: URL Base
+    placeholder:
+      en_US: https://gw.ldxhub.io
+      ja_JP: https://gw.ldxhub.io
+    default: https://gw.ldxhub.io
+    help:
+      en_US: |
+        LDX hub API base URL. Use the production URL for normal use.
+        For development/testing, use the dev environment URL.
+      ja_JP: |
+        LDX hub API のベース URL。通常は本番 URL を使用します。
+        開発・検証用途では開発環境の URL を指定してください。
+
+  api_key:
+    type: secret-input
+    required: true
+    label:
+      en_US: API Key
+      zh_Hans: API 密钥
+      pt_BR: Chave de API
+      ja_JP: APIキー
+    placeholder:
+      en_US: Enter your LDX hub API key
+      zh_Hans: 请输入您的 LDX hub API 密钥
+      pt_BR: Insira sua chave de API LDX hub
+      ja_JP: LDX hub のAPIキーを入力してください
+    help:
+      en_US: "Get your API key from https://gw.portal.ldxhub.io"
+      zh_Hans: "从 https://gw.portal.ldxhub.io 获取您的 API 密钥"
+      pt_BR: "Obtenha sua chave de API em https://gw.portal.ldxhub.io"
+      ja_JP: "APIキーは https://gw.portal.ldxhub.io から取得できます"
+    url: "https://gw.portal.ldxhub.io"
+
+tools:
+  - tools/refineloop.yaml
+  - tools/structflow.yaml
+extra:
+  python:
+    source: provider/ldxhub.py
