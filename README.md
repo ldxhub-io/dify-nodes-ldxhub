@@ -2,6 +2,8 @@
 
 > Document AI for Dify workflows — structured data extraction and translation refinement, powered by leading LLMs through a unified gateway.
 
+![Hero: Dify workflow with LDX hub StructFlow node](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/hero.png)
+
 ## What This Plugin Does
 
 LDX hub is a document AI gateway built by [LDX Lab](https://ldxlab.io). This plugin brings two of its capabilities into Dify:
@@ -22,45 +24,47 @@ StructFlow turns unstructured text into structured JSON. You define an extractio
 3. Pick an AI model
 4. Get a JSONL file with structured JSON per record
 
+![StructFlow node settings](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/structflow_node.png)
+
 ### Use Cases
 
-We have documented 8 real-world use cases across industries — patents, healthcare, finance, legal, customer support, HR, real estate, and e-commerce. The full list with prompts and sample inputs/outputs is included in the plugin package as `examples/USE_CASES.md`.
+We have documented 8 real-world use cases across industries — patents, healthcare, finance, legal, customer support, HR, real estate, and e-commerce.
+
+See [examples/USE_CASES.md](https://github.com/ldxhub-io/dify-nodes-ldxhub/blob/main/examples/USE_CASES.md) for the full list with prompts and sample inputs/outputs.
 
 ### Quick Example: Medical Records
 
-**Input** (one record from a JSONL file — clinical note in Japanese):
+**Input** (one record from a JSONL file — clinical note):
 
 ```json
-{"note":"30代男性。主訴：発熱、咽頭痛、嚥下困難。現病歴：3日前から38度台の発熱があり、市販の解熱鎮痛剤を内服するも改善せず。昨日から唾液を飲み込むのも辛いほどの強い咽頭痛が出現したため当院を受診。身体所見：体温38.5度、血圧120/80、口蓋扁桃に著明な発赤と白苔の付着を認める。前頸部リンパ節の圧痛伴う腫脹あり。迅速検査：インフルエンザ抗原陰性、新型コロナウイルス抗原陰性、A群β溶血性連鎖球菌（溶連菌）迅速抗原検査陽性。アセスメント：急性化膿性扁桃炎（溶連菌感染症）。プラン：ペニシリン系抗菌薬（アモキシシリンカプセル250mg 1日3回 10日分）を処方。疼痛時頓服としてロキソプロフェンナトリウム錠60mgを処方。"}
+{"note":"Male in his 30s. Chief complaints: fever, sore throat, dysphagia. History of present illness: 3 days of fever in the 38°C range, unresponsive to OTC antipyretics. Severe sore throat with painful swallowing developed yesterday, prompting this visit. Physical exam: temperature 38.5°C, BP 120/80, marked erythema and white exudate on the palatine tonsils, tender anterior cervical lymphadenopathy. Rapid tests: influenza antigen negative, COVID-19 antigen negative, Group A streptococcus rapid antigen test positive. Assessment: acute purulent tonsillitis (streptococcal infection). Plan: prescribed amoxicillin 250mg three times daily for 10 days, plus loxoprofen 60mg as needed for pain."}
 ```
-
-> *In English:* A 30s male with chief complaints of fever, sore throat, and difficulty swallowing. Three days of fever in the 38°C range, unresponsive to OTC antipyretics. Physical exam shows marked erythema and white exudate on the palatine tonsils, and tender anterior cervical lymphadenopathy. Rapid tests: influenza negative, COVID-19 negative, Group A streptococcus positive. Assessment: acute purulent tonsillitis (streptococcal infection). Plan: amoxicillin 250mg three times daily for 10 days, plus loxoprofen 60mg as needed for pain.
 
 **Output** (actual JSON extracted by StructFlow):
 
 ```json
 {
   "symptoms": [
-    "発熱",
-    "38度台の発熱",
-    "咽頭痛",
-    "嚥下困難",
-    "唾液を飲み込むのも辛いほどの強い咽頭痛",
-    "口蓋扁桃の著明な発赤",
-    "口蓋扁桃の白苔の付着",
-    "前頸部リンパ節の圧痛伴う腫脹"
+    "Fever",
+    "Fever in the 38°C range",
+    "Sore throat",
+    "Dysphagia",
+    "Severe sore throat with painful swallowing",
+    "Marked erythema on the palatine tonsils",
+    "White exudate on the palatine tonsils",
+    "Tender anterior cervical lymphadenopathy"
   ],
-  "diagnosis": "急性化膿性扁桃炎（溶連菌感染症）",
+  "diagnosis": "Acute purulent tonsillitis (streptococcal infection)",
   "treatment": [
-    "アモキシシリンカプセル250mg 1日3回 10日分",
-    "ロキソプロフェンナトリウム錠60mg"
+    "Amoxicillin 250mg three times daily for 10 days",
+    "Loxoprofen 60mg as needed for pain"
   ]
 }
 ```
 
-> *In English:* `symptoms` captures eight distinct findings — including granular physical exam observations like "marked erythema on the palatine tonsils" and "tender anterior cervical lymphadenopathy". `diagnosis` is the formal assessment "Acute purulent tonsillitis (streptococcal infection)". `treatment` preserves the full prescription details with dosage and frequency.
+`symptoms` captures eight distinct findings — including granular physical exam observations like "Marked erythema on the palatine tonsils" and "Tender anterior cervical lymphadenopathy". `diagnosis` is the formal assessment. `treatment` preserves the full prescription details with dosage and frequency.
 
-A free-form clinical note becomes structured, queryable data. Physical findings, rapid test results, diagnostic assessment, and prescriptions are all extracted with their relevant context. **StructFlow handles Japanese clinical text natively**, and the same approach works for English, Chinese, and other languages.
+A free-form clinical note becomes structured, queryable data. Physical findings, rapid test results, diagnostic assessment, and prescriptions are all extracted with their relevant context. **StructFlow handles unstructured text in any language natively**, supporting English, Japanese, Chinese, and others.
 
 ## RefineLoop: XLIFF Translation Refinement
 
@@ -73,6 +77,8 @@ RefineLoop is built on StructFlow's iterative refinement engine, but specialized
 3. RefineLoop iteratively reviews and improves translations across multiple revision rounds
 4. Get a refined XLIFF back, ready to import to your CAT tool
 
+![RefineLoop node settings](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/refineloop_node.png)
+
 ### Built for Scale
 
 RefineLoop is built on the same iterative refinement engine as StructFlow. When you give it an XLIFF, RefineLoop groups all `trans-unit` segments by source/target language pair across every `<file>` element in the XLIFF, then dispatches them to the engine in a single batch per pair.
@@ -82,6 +88,8 @@ That means the number of engine invocations is bounded by `(language pairs × re
 XLIFF tag integrity (`<ph>`, `<bpt>`, `<ept>`, `<it>`, etc.) is validated after every revision. If a revision breaks the tag structure, that revision is marked as failed and the next round retries — your final XLIFF stays compatible with your CAT tool.
 
 **Real-world benchmark:** A translation of the BERT paper (about 65,000 source characters; approximately 145,000 with XLIFF tags) was refined with Gemini 3 Flash Preview and `max_revisions=6` in **3 minutes 46 seconds** end-to-end on Dify Cloud, including upload and download. Higher-accuracy models typically converge in fewer rounds and finish faster.
+
+![Test run trace showing RefineLoop completed in 3 m 45.912 s](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/run.png)
 
 ### Output Modes
 
@@ -101,6 +109,8 @@ Open the LDX hub plugin authorization screen and enter:
 
 - **Base URL**: `https://gw.ldxhub.io` (default)
 - **API Key**: paste the key from step 1
+
+![API key authorization configuration](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/credential.png)
 
 Your API key is encrypted by Dify (PKCS1_OAEP) and stored within your workspace.
 
@@ -129,7 +139,7 @@ For exceptionally long jobs that may exceed Dify's execution timeout, an optiona
 
 This plugin transmits your data to LDX hub servers and the AI providers configured for your selected model. Your API key is encrypted by Dify (PKCS1_OAEP). The plugin itself stores no data and sends no telemetry.
 
-See `PRIVACY.md` (included in the plugin package) for details.
+See [PRIVACY.md](https://github.com/ldxhub-io/dify-nodes-ldxhub/blob/main/PRIVACY.md) for details.
 
 ## About LDX hub
 
@@ -137,4 +147,4 @@ LDX hub is built by [LDX Lab](https://ldxlab.io). It provides a unified API gate
 
 For questions about the API itself, see [https://ldxlab.io](https://ldxlab.io).
 
-For questions about this Dify plugin, please use the issue tracker on the plugin's repository.
+For questions or bug reports about this Dify plugin, please use [GitHub Issues](https://github.com/ldxhub-io/dify-nodes-ldxhub/issues).

@@ -2,6 +2,8 @@
 
 > Dify ワークフローのためのドキュメント AI — 統合ゲートウェイ経由で、主要 LLM を使った構造化データ抽出と翻訳品質改善。
 
+![Hero: Dify ワークフロー上の LDX hub StructFlow ノード](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/hero.png)
+
 ## このプラグインでできること
 
 LDX hub は [LDX Lab](https://ldxlab.io) が提供するドキュメント AI ゲートウェイです。本プラグインはその中から 2 つの機能を Dify に持ち込みます。
@@ -22,9 +24,13 @@ StructFlow は非構造テキストを構造化 JSON に変換します。シス
 3. AI モデルを選択
 4. レコードごとに構造化 JSON が並んだ JSONL ファイルを取得
 
+![StructFlow ノードの設定画面](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/structflow_node.png)
+
 ### ユースケース
 
-特許、医療、金融、法務、カスタマーサポート、人事、不動産、EC の 8 業界にわたる実例を整理しています。プロンプトとサンプル入出力を含む全リストは、プラグインパッケージに同梱されている `examples/USE_CASES.md` を参照してください。
+特許、医療、金融、法務、カスタマーサポート、人事、不動産、EC の 8 業界にわたる実例を整理しています。
+
+プロンプトとサンプル入出力を含む全リストは [examples/USE_CASES.md](https://github.com/ldxhub-io/dify-nodes-ldxhub/blob/main/examples/USE_CASES.md) を参照してください。
 
 ### 簡単な例: 医療カルテ
 
@@ -69,6 +75,8 @@ RefineLoop は StructFlow の反復改善エンジンを XLIFF ファイル向�
 3. 複数のリビジョンを通じて訳文が反復的にレビュー・改善される
 4. 改善された XLIFF を取得し、CAT ツールに戻す
 
+![RefineLoop ノードの設定画面](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/refineloop_node.png)
+
 ### スケールに対応した設計
 
 RefineLoop は StructFlow と同じ反復改善エンジンの上に作られています。XLIFF を渡すと、その中の全 `<file>` 要素を横断して `trans-unit` セグメントをソース/ターゲット言語ペアでグルーピングし、言語ペアごとに 1 バッチでエンジンに投入します。
@@ -78,6 +86,8 @@ RefineLoop は StructFlow と同じ反復改善エンジンの上に作られて
 XLIFF のタグ整合性（`<ph>`, `<bpt>`, `<ept>`, `<it>` など）は各リビジョン後に検証されます。リビジョンがタグ構造を壊した場合、そのリビジョンは失敗扱いになり、次のリビジョンで再挑戦します。最終的な XLIFF は CAT ツールにそのまま取り込める状態を保ちます。
 
 **実測ベンチマーク:** BERT 論文の翻訳（原文約 65,000 文字、XLIFF タグ込みで約 145,000 文字）を Gemini 3 Flash Preview と `max_revisions=6` で改善した結果、Dify Cloud 上でアップロード・ダウンロードを含めて **3 分 46 秒** で完走しました。精度の高いモデルを使えば収束が早く、より短時間で完了します。
+
+![RefineLoop が 3 m 45.912 s で完走したテスト実行のトレース](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/run.png)
 
 ### 出力モード
 
@@ -97,6 +107,8 @@ LDX hub プラグインの認証設定画面を開いて、以下を入力しま
 
 - **Base URL**: `https://gw.ldxhub.io`（デフォルト）
 - **API キー**: ステップ 1 で取得したキーを貼り付け
+
+![API キー認証設定画面](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/credential.png)
 
 API キーは Dify によって暗号化（PKCS1_OAEP）されてワークスペース内に保存されます。
 
@@ -125,7 +137,7 @@ API キーは Dify によって暗号化（PKCS1_OAEP）されてワークスペ
 
 このプラグインは LDX hub サーバと、選択したモデルに対応する AI プロバイダーに対してデータを送信します。API キーは Dify によって暗号化（PKCS1_OAEP）されます。プラグイン自体はデータを保存せず、テレメトリも送信しません。
 
-詳細は、プラグインパッケージに同梱されている `PRIVACY.md` を参照してください。
+詳細は [PRIVACY.md](https://github.com/ldxhub-io/dify-nodes-ldxhub/blob/main/PRIVACY.md) を参照してください。
 
 ## LDX hub について
 
@@ -133,4 +145,4 @@ LDX hub は [LDX Lab](https://ldxlab.io) が開発しています。複数の LL
 
 API 自体に関する質問は [https://ldxlab.io](https://ldxlab.io) を参照してください。
 
-この Dify プラグインに関する質問は、プラグインのリポジトリの issue tracker からお願いします。
+この Dify プラグインに関する質問やバグレポートは [GitHub Issues](https://github.com/ldxhub-io/dify-nodes-ldxhub/issues) からお願いします。
