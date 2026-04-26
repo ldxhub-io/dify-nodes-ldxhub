@@ -46,6 +46,12 @@ parameters:
     llm_description: "The AI model identifier to use for structured extraction"
     form: form
     options:
+      - value: openai/gpt-5.5
+        label:
+          en_US: OpenAI GPT-5.5
+          zh_Hans: OpenAI GPT-5.5
+          pt_BR: OpenAI GPT-5.5
+          ja_JP: OpenAI GPT-5.5
       - value: openai/gpt-5.4
         label:
           en_US: OpenAI GPT-5.4
