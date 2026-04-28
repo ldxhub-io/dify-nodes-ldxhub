@@ -116,12 +116,11 @@ API キーは Dify によって暗号化（PKCS1_OAEP）されてワークスペ
 
 両ツールとも以下のプロバイダーのモデルに対応しています。
 
-- OpenAI (GPT-5.4 シリーズ)
-- Microsoft Azure OpenAI
-- Google (Gemini 3 シリーズ)
-- Anthropic (Claude Sonnet 4.6)
-- Amazon Bedrock (Nova 2 Lite)
-- xAI (Grok 4.20)
+- OpenAI GPT シリーズ（フラッグシップ／mini 系、Azure 経由含む）
+- Google Gemini シリーズ（Pro と Flash）
+- Anthropic Claude シリーズ（Opus と Sonnet）
+- Amazon Nova（Bedrock 経由）
+- xAI Grok
 
 モデルラインナップは LDX hub 側で動的に管理されていますが、プラグイン側にはビルド時点のリストを埋め込んでいます。新しいモデルを Dify ワークフローで使えるようにするには、プラグインのバージョンアップデートが必要です。
 

@@ -118,12 +118,11 @@ Your API key is encrypted by Dify (PKCS1_OAEP) and stored within your workspace.
 
 Both tools currently support models from:
 
-- OpenAI (GPT-5.4 series)
-- Microsoft Azure OpenAI
-- Google (Gemini 3 series)
-- Anthropic (Claude Sonnet 4.6)
-- Amazon Bedrock (Nova 2 Lite)
-- xAI (Grok 4.20)
+- OpenAI GPT series (flagship and mini variants, including Azure-hosted)
+- Google Gemini series (Pro and Flash)
+- Anthropic Claude series (Opus and Sonnet)
+- Amazon Nova (Bedrock)
+- xAI Grok
 
 The model lineup is maintained dynamically on the LDX hub side, but the plugin embeds the current list at build time. New models become available to your Dify workflow through plugin version updates.
 
