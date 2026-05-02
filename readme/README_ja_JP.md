@@ -4,6 +4,12 @@
 
 ![Hero: Dify ワークフロー上の LDX hub StructFlow ノード](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/hero.png)
 
+> ✅ **無料で試せる** — 月25,000クレジット、クレジットカード不要
+> ✅ **キー1本で全モデル** — OpenAI、Anthropic、Google、AWS、Azure、xAI
+> ✅ **30秒で登録完了** — GitHub・Google・メールでサインアップ可、登録直後に API キー表示
+
+---
+
 ## このプラグインでできること
 
 LDX hub は [LDX Lab](https://ldxlab.io) が提供するドキュメント AI ゲートウェイです。本プラグインはその中から 2 つの機能を Dify に持ち込みます。
@@ -99,7 +105,7 @@ XLIFF のタグ整合性（`<ph>`, `<bpt>`, `<ept>`, `<it>` など）は各リ�
 
 ### 1. API キーを取得
 
-[https://gw.portal.ldxhub.io](https://gw.portal.ldxhub.io) でサインアップして API キーを取得します。
+[https://gw.portal.ldxhub.io](https://gw.portal.ldxhub.io) でサインアップして API キーを取得します（無料、クレジットカード不要、GitHub・Google・メールで OK、登録直後にキー表示）。
 
 ### 2. Dify で認証情報を設定
 

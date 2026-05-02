@@ -48,10 +48,18 @@ credentials_for_provider:
       pt_BR: Insira sua chave de API LDX hub
       ja_JP: LDX hub のAPIキーを入力してください
     help:
-      en_US: "Get your API key from https://gw.portal.ldxhub.io"
-      zh_Hans: "从 https://gw.portal.ldxhub.io 获取您的 API 密钥"
-      pt_BR: "Obtenha sua chave de API em https://gw.portal.ldxhub.io"
-      ja_JP: "APIキーは https://gw.portal.ldxhub.io から取得できます"
+      en_US: |
+        Get a free API key from https://gw.portal.ldxhub.io
+        25,000 credits/month, no credit card. Sign up with GitHub, Google, or email in 30 seconds.
+      ja_JP: |
+        無料の API キーは https://gw.portal.ldxhub.io から取得できます
+        月25,000クレジット無料、クレジットカード不要。GitHub・Google・メールで30秒で登録完了。
+      zh_Hans: |
+        在 https://gw.portal.ldxhub.io 免费获取 API 密钥
+        每月25,000积分免费，无需信用卡。使用 GitHub、Google 或邮箱30秒完成注册。
+      pt_BR: |
+        Obtenha uma chave de API gratuita em https://gw.portal.ldxhub.io
+        25.000 créditos/mês grátis, sem cartão de crédito. Cadastro em 30 segundos com GitHub, Google ou e-mail.
     url: "https://gw.portal.ldxhub.io"
 
 tools:
