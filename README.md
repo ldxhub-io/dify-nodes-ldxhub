@@ -4,6 +4,12 @@
 
 ![Hero: Dify workflow with LDX hub StructFlow node](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/hero.png)
 
+> ✅ **Free to try** — 25,000 credits/month, no credit card required  
+> ✅ **One key for everything** — OpenAI, Anthropic, Google, AWS, Azure, xAI  
+> ✅ **30-second sign-up** — GitHub, Google, or email; your API key is shown immediately
+
+---
+
 ## What This Plugin Does
 
 LDX hub is a document AI gateway built by [LDX Lab](https://ldxlab.io). This plugin brings two of its capabilities into Dify:
@@ -101,7 +107,7 @@ XLIFF tag integrity (`<ph>`, `<bpt>`, `<ept>`, `<it>`, etc.) is validated after 
 
 ### 1. Get Your API Key
 
-Sign up at [https://gw.portal.ldxhub.io](https://gw.portal.ldxhub.io) and obtain an API key.
+Sign up at [https://gw.portal.ldxhub.io](https://gw.portal.ldxhub.io) — free, no credit card. Sign up with GitHub, Google, or email; your API key is shown immediately.
 
 ### 2. Configure Credentials in Dify
 
