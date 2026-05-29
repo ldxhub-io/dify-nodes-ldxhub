@@ -93,9 +93,9 @@ That means the number of engine invocations is bounded by `(language pairs × re
 
 XLIFF tag integrity (`<ph>`, `<bpt>`, `<ept>`, `<it>`, etc.) is validated after every revision. If a revision breaks the tag structure, that revision is marked as failed and the next round retries — your final XLIFF stays compatible with your CAT tool.
 
-**Real-world benchmark:** A translation of the BERT paper (about 65,000 source characters; approximately 145,000 with XLIFF tags) was refined with Gemini 3 Flash Preview and `max_revisions=6` in **3 minutes 46 seconds** end-to-end on Dify Cloud, including upload and download. Higher-accuracy models typically converge in fewer rounds and finish faster.
+**Real-world benchmark:** A translation of the BERT paper (about 65,000 source characters; approximately 145,000 with XLIFF tags) was refined with Gemini 3.5 Flash and `max_revisions=6` in **4 minutes 9 seconds** end-to-end on Dify Cloud, including upload and download. Actual time varies by model, content, and convergence behavior.
 
-![Test run trace showing RefineLoop completed in 3 m 45.912 s](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/run.png)
+![Test run trace showing RefineLoop completed in 4 m 9.156 s](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/run.png)
 
 ### Output Modes
 
@@ -134,7 +134,7 @@ The model lineup is maintained dynamically on the LDX hub side, but the plugin e
 
 ## Long-Running Jobs
 
-The plugin polls the LDX hub API for job completion. For typical workloads this is sufficient — the BERT paper benchmark above completed in under 4 minutes.
+The plugin polls the LDX hub API for job completion. For typical workloads this is sufficient — the BERT paper benchmark above completed in about 4 minutes.
 
 For exceptionally long jobs that may exceed Dify's execution timeout, an optional `webhook_url` parameter is exposed. The plugin transmits this to LDX hub so the server can notify a URL of your choice on completion.
 

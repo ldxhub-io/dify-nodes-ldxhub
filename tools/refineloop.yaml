@@ -94,6 +94,12 @@ parameters:
           zh_Hans: Google Gemini 3 Flash Preview
           pt_BR: Google Gemini 3 Flash Preview
           ja_JP: Google Gemini 3 Flash Preview
+      - value: anthropic/claude-opus-4-8
+        label:
+          en_US: Claude Opus 4.8
+          zh_Hans: Claude Opus 4.8
+          pt_BR: Claude Opus 4.8
+          ja_JP: Claude Opus 4.8
       - value: anthropic/claude-opus-4-7
         label:
           en_US: Claude Opus 4.7

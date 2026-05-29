@@ -91,9 +91,9 @@ RefineLoop は StructFlow と同じ反復改善エンジンの上に作られて
 
 XLIFF のタグ整合性（`<ph>`, `<bpt>`, `<ept>`, `<it>` など）は各リビジョン後に検証されます。リビジョンがタグ構造を壊した場合、そのリビジョンは失敗扱いになり、次のリビジョンで再挑戦します。最終的な XLIFF は CAT ツールにそのまま取り込める状態を保ちます。
 
-**実測ベンチマーク:** BERT 論文の翻訳（原文約 65,000 文字、XLIFF タグ込みで約 145,000 文字）を Gemini 3 Flash Preview と `max_revisions=6` で改善した結果、Dify Cloud 上でアップロード・ダウンロードを含めて **3 分 46 秒** で完走しました。精度の高いモデルを使えば収束が早く、より短時間で完了します。
+**実測ベンチマーク:** BERT 論文の翻訳（原文約 65,000 文字、XLIFF タグ込みで約 145,000 文字）を Gemini 3.5 Flash と `max_revisions=6` で改善した結果、Dify Cloud 上でアップロード・ダウンロードを含めて **4 分 9 秒** で完走しました。実所要時間はモデル・コンテンツ・収束挙動によって変動します。
 
-![RefineLoop が 3 m 45.912 s で完走したテスト実行のトレース](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/run.png)
+![RefineLoop が 4 m 9.156 s で完走したテスト実行のトレース](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/run.png)
 
 ### 出力モード
 
@@ -132,7 +132,7 @@ API キーは Dify によって暗号化（PKCS1_OAEP）されてワークスペ
 
 ## 長時間ジョブ
 
-プラグインは LDX hub の API をポーリングしてジョブの完了を待ちます。通常のワークロードならこれで十分です（前述の BERT 論文のベンチマークも 4 分以内で完走しています）。
+プラグインは LDX hub の API をポーリングしてジョブの完了を待ちます。通常のワークロードならこれで十分です（前述の BERT 論文のベンチマークも約 4 分で完走しています）。
 
 例外的に長時間かかるジョブで Dify の実行タイムアウトを超える可能性がある場合のために、`webhook_url` パラメータをオプションで用意しています。プラグインがこの URL を LDX hub に渡し、サーバ側がジョブ完了時に指定 URL へ通知します。
 
