@@ -6,7 +6,6 @@ from typing import Any
 import requests
 
 from dify_plugin import Tool
-from dify_plugin.entities import I18nObject, ParameterOption
 from dify_plugin.entities.tool import ToolInvokeMessage
 
 
@@ -198,45 +197,3 @@ class RefineLoopTool(Tool):
             "mode": "sync",
             "status": "completed",
         })
-
-    def _fetch_parameter_options(self, parameter: str) -> list[ParameterOption]:
-        # Dynamically populate the model dropdown from the LDX hub models API.
-        if parameter != "model":
-            return []
-
-        # Static fallback, used only when the models API cannot be reached.
-        fallback = [
-            ("google/gemini-3-flash-preview", "Google Gemini 3 Flash Preview"),
-            ("openai/gpt-5.5", "OpenAI GPT-5.5"),
-            ("anthropic/claude-opus-4-8", "Claude Opus 4.8"),
-            ("google/gemini-3.5-flash", "Google Gemini 3.5 Flash"),
-        ]
-
-        api_key = self.runtime.credentials.get("api_key")
-        base_url = self.runtime.credentials.get("base_url", "https://gw.ldxhub.io").rstrip("/")
-
-        if api_key:
-            try:
-                response = requests.get(
-                    f"{base_url}/refineloop/models",
-                    headers={"Authorization": f"Bearer {api_key}"},
-                    timeout=10,
-                )
-                response.raise_for_status()
-                options = [
-                    ParameterOption(
-                        value=item["id"],
-                        label=I18nObject(en_US=item.get("display_name") or item["id"]),
-                    )
-                    for item in response.json().get("data", [])
-                    if item.get("id")
-                ]
-                if options:
-                    return options
-            except Exception:
-                pass
-
-        return [
-            ParameterOption(value=value, label=I18nObject(en_US=label))
-            for value, label in fallback
-        ]
