@@ -130,7 +130,7 @@ Both tools currently support models from:
 - Amazon Nova (Bedrock)
 - xAI Grok
 
-The model lineup is maintained dynamically on the LDX hub side, but the plugin embeds the current list at build time. New models become available to your Dify workflow through plugin version updates.
+The model list is fetched from the LDX hub API at runtime, so new models appear in the dropdown automatically — no plugin update required.
 
 ## Long-Running Jobs
 

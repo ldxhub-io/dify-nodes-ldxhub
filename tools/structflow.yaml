@@ -31,7 +31,7 @@ parameters:
     form: form
 
   - name: model
-    type: select
+    type: dynamic-select
     required: true
     label:
       en_US: Model
@@ -45,91 +45,6 @@ parameters:
       ja_JP: "抽出に使用するAIモデル"
     llm_description: "The AI model identifier to use for structured extraction"
     form: form
-    options:
-      - value: openai/gpt-5.5
-        label:
-          en_US: OpenAI GPT-5.5
-          zh_Hans: OpenAI GPT-5.5
-          pt_BR: OpenAI GPT-5.5
-          ja_JP: OpenAI GPT-5.5
-      - value: openai/gpt-5.4
-        label:
-          en_US: OpenAI GPT-5.4
-          zh_Hans: OpenAI GPT-5.4
-          pt_BR: OpenAI GPT-5.4
-          ja_JP: OpenAI GPT-5.4
-      - value: openai/gpt-5.4-mini
-        label:
-          en_US: OpenAI GPT-5.4 mini
-          zh_Hans: OpenAI GPT-5.4 mini
-          pt_BR: OpenAI GPT-5.4 mini
-          ja_JP: OpenAI GPT-5.4 mini
-      - value: azure/gpt-5.4
-        label:
-          en_US: Azure OpenAI GPT-5.4
-          zh_Hans: Azure OpenAI GPT-5.4
-          pt_BR: Azure OpenAI GPT-5.4
-          ja_JP: Azure OpenAI GPT-5.4
-      - value: azure/gpt-5.4-mini
-        label:
-          en_US: Azure OpenAI GPT-5.4 mini
-          zh_Hans: Azure OpenAI GPT-5.4 mini
-          pt_BR: Azure OpenAI GPT-5.4 mini
-          ja_JP: Azure OpenAI GPT-5.4 mini
-      - value: google/gemini-3.5-flash
-        label:
-          en_US: Google Gemini 3.5 Flash
-          zh_Hans: Google Gemini 3.5 Flash
-          pt_BR: Google Gemini 3.5 Flash
-          ja_JP: Google Gemini 3.5 Flash
-      - value: google/gemini-3.1-pro-preview
-        label:
-          en_US: Google Gemini 3.1 Pro Preview
-          zh_Hans: Google Gemini 3.1 Pro Preview
-          pt_BR: Google Gemini 3.1 Pro Preview
-          ja_JP: Google Gemini 3.1 Pro Preview
-      - value: google/gemini-3-flash-preview
-        label:
-          en_US: Google Gemini 3 Flash Preview
-          zh_Hans: Google Gemini 3 Flash Preview
-          pt_BR: Google Gemini 3 Flash Preview
-          ja_JP: Google Gemini 3 Flash Preview
-      - value: anthropic/claude-opus-4-8
-        label:
-          en_US: Claude Opus 4.8
-          zh_Hans: Claude Opus 4.8
-          pt_BR: Claude Opus 4.8
-          ja_JP: Claude Opus 4.8
-      - value: anthropic/claude-opus-4-7
-        label:
-          en_US: Claude Opus 4.7
-          zh_Hans: Claude Opus 4.7
-          pt_BR: Claude Opus 4.7
-          ja_JP: Claude Opus 4.7
-      - value: anthropic/claude-sonnet-4-6
-        label:
-          en_US: Claude Sonnet 4.6
-          zh_Hans: Claude Sonnet 4.6
-          pt_BR: Claude Sonnet 4.6
-          ja_JP: Claude Sonnet 4.6
-      - value: bedrock/global.amazon.nova-2-lite-v1:0
-        label:
-          en_US: Amazon Nova 2 Lite (Bedrock)
-          zh_Hans: Amazon Nova 2 Lite (Bedrock)
-          pt_BR: Amazon Nova 2 Lite (Bedrock)
-          ja_JP: Amazon Nova 2 Lite (Bedrock)
-      - value: xai/grok-4.3
-        label:
-          en_US: xAI Grok 4.3
-          zh_Hans: xAI Grok 4.3
-          pt_BR: xAI Grok 4.3
-          ja_JP: xAI Grok 4.3
-      - value: xai/grok-4.20-non-reasoning
-        label:
-          en_US: xAI Grok 4.20 (Non-Reasoning)
-          zh_Hans: xAI Grok 4.20 (Non-Reasoning)
-          pt_BR: xAI Grok 4.20 (Non-Reasoning)
-          ja_JP: xAI Grok 4.20 (Non-Reasoning)
 
   - name: system_prompt
     type: string
