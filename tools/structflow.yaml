@@ -94,6 +94,12 @@ parameters:
           zh_Hans: Google Gemini 3 Flash Preview
           pt_BR: Google Gemini 3 Flash Preview
           ja_JP: Google Gemini 3 Flash Preview
+      - value: anthropic/claude-fable-5
+        label:
+          en_US: Claude Fable 5
+          zh_Hans: Claude Fable 5
+          pt_BR: Claude Fable 5
+          ja_JP: Claude Fable 5
       - value: anthropic/claude-opus-4-8
         label:
           en_US: Claude Opus 4.8
