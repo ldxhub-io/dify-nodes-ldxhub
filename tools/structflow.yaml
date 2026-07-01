@@ -100,6 +100,12 @@ parameters:
           zh_Hans: Claude Fable 5
           pt_BR: Claude Fable 5
           ja_JP: Claude Fable 5
+      - value: anthropic/claude-sonnet-5
+        label:
+          en_US: Claude Sonnet 5
+          zh_Hans: Claude Sonnet 5
+          pt_BR: Claude Sonnet 5
+          ja_JP: Claude Sonnet 5
       - value: anthropic/claude-opus-4-8
         label:
           en_US: Claude Opus 4.8
