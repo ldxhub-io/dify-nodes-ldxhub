@@ -122,9 +122,9 @@ API キーは Dify によって暗号化（PKCS1_OAEP）されてワークスペ
 
 両ツールとも以下のプロバイダーのモデルに対応しています。
 
-- OpenAI GPT シリーズ（フラッグシップ／mini 系、Azure 経由含む）
-- Google Gemini シリーズ（Pro と Flash）
-- Anthropic Claude シリーズ（Opus と Sonnet）
+- OpenAI GPT シリーズ（フラッグシップから軽量系まで、Azure 経由含む）
+- Google Gemini シリーズ（Pro、Flash、Flash-Lite）
+- Anthropic Claude シリーズ（Fable、Opus、Sonnet）
 - Amazon Nova（Bedrock 経由）
 - xAI Grok
 
