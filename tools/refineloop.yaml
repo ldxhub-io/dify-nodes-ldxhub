@@ -112,6 +112,12 @@ parameters:
           zh_Hans: Azure OpenAI GPT-5.4 mini
           pt_BR: Azure OpenAI GPT-5.4 mini
           ja_JP: Azure OpenAI GPT-5.4 mini
+      - value: google/gemini-3.7-flash
+        label:
+          en_US: Google Gemini 3.7 Flash
+          zh_Hans: Google Gemini 3.7 Flash
+          pt_BR: Google Gemini 3.7 Flash
+          ja_JP: Google Gemini 3.7 Flash
       - value: google/gemini-3.6-flash
         label:
           en_US: Google Gemini 3.6 Flash
@@ -184,6 +190,12 @@ parameters:
           zh_Hans: Amazon Nova 2 Lite (Bedrock)
           pt_BR: Amazon Nova 2 Lite (Bedrock)
           ja_JP: Amazon Nova 2 Lite (Bedrock)
+      - value: xai/grok-4.6
+        label:
+          en_US: xAI Grok 4.6
+          zh_Hans: xAI Grok 4.6
+          pt_BR: xAI Grok 4.6
+          ja_JP: xAI Grok 4.6
       - value: xai/grok-4.5
         label:
           en_US: xAI Grok 4.5
