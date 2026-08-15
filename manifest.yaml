@@ -18,7 +18,7 @@ description:
     data extraction
 icon: icon.svg
 repo: https://github.com/ldxhub-io/dify-nodes-ldxhub
-contact: https://github.com/ldxhub-io/dify-nodes-ldxhub/issues
+contact: ki_cs@k-intl.co.jp
 resource:
   memory: 268435456
   permission:
