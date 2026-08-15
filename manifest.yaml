@@ -17,6 +17,8 @@ description:
   pt_BR: LDX hub tools for document processing, translation refinement, and structured
     data extraction
 icon: icon.svg
+repo: https://github.com/ldxhub-io/dify-nodes-ldxhub
+contact: https://github.com/ldxhub-io/dify-nodes-ldxhub/issues
 resource:
   memory: 268435456
   permission:
