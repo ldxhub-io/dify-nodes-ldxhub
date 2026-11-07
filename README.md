@@ -125,8 +125,8 @@ Your API key is encrypted by Dify (PKCS1_OAEP) and stored within your workspace.
 Both tools currently support models from:
 
 - OpenAI GPT series (flagship to lightweight variants, including Azure-hosted)
-- Google Gemini series (Pro, Flash, and Flash-Lite)
-- Anthropic Claude series (Fable, Opus, and Sonnet)
+- Google Gemini series (Argon, Flash, and Flash-Lite)
+- Anthropic Claude series (Fable, Opus, Sonnet, and Haiku)
 - Amazon Nova (Bedrock)
 - xAI Grok
 
