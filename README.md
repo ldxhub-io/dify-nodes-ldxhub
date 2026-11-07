@@ -132,6 +132,8 @@ Both tools currently support models from:
 
 The model lineup is maintained dynamically on the LDX hub side, but the plugin embeds the current list at build time. New models become available to your Dify workflow through plugin version updates.
 
+**Version 0.0.22:** The options for models being retired from LDX hub were removed: GPT-5.6 Sol, GPT-5.6 Terra, GPT-5.6 Luna, GPT-5.5, GPT-5.4, and GPT-5.4 mini (including Azure-hosted), Gemini 3.7 Flash, 3.6 Flash, 3.5 Flash, 3.1 Pro Preview, and 3 Flash Preview, Claude Fable 5, Opus 5, Sonnet 5, Opus 4.8, Opus 4.7, and Sonnet 4.6, and Grok 4.6, 4.5, and 4.20 (Non-Reasoning). Workflows that use one of these models need to select another model.
+
 ## Long-Running Jobs
 
 The plugin polls the LDX hub API for job completion. For typical workloads this is sufficient — the BERT paper benchmark above completed in about 4 minutes.
