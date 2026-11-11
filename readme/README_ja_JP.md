@@ -123,7 +123,7 @@ API キーは Dify によって暗号化（PKCS1_OAEP）されてワークスペ
 両ツールとも以下のプロバイダーのモデルに対応しています。
 
 - OpenAI GPT シリーズ（フラッグシップから軽量系まで、Azure 経由含む）
-- Google Gemini シリーズ（Argon、Flash、Flash-Lite）
+- Google Gemini シリーズ（Carbon、Argon、Flash、Flash-Lite）
 - Anthropic Claude シリーズ（Fable、Opus、Sonnet、Haiku）
 - Amazon Nova（Bedrock 経由）
 - xAI Grok
@@ -131,6 +131,8 @@ API キーは Dify によって暗号化（PKCS1_OAEP）されてワークスペ
 モデルラインナップは LDX hub 側で動的に管理されていますが、プラグイン側にはビルド時点のリストを埋め込んでいます。新しいモデルを Dify ワークフローで使えるようにするには、プラグインのバージョンアップデートが必要です。
 
 **バージョン 0.0.22:** LDX hub で提供を終えるモデルの選択肢を外しました（GPT-5.6 Sol・Terra・Luna、GPT-5.5、GPT-5.4、GPT-5.4 mini（Azure 経由を含む）、Gemini 3.7 Flash・3.6 Flash・3.5 Flash・3.1 Pro Preview・3 Flash Preview、Claude Fable 5・Opus 5・Sonnet 5・Opus 4.8・Opus 4.7・Sonnet 4.6、Grok 4.6・4.5・4.20（Non-Reasoning））。これらのモデルを使っているワークフローは、別のモデルを選び直してください。
+
+**バージョン 0.0.23:** Gemini 4 Carbon と Claude Fable 5.2 を足しました。LDX hub が 2026-11-24 に Claude Fable 5.1 の提供を終えるので、その選択肢を外しました。Claude Fable 5.1 を使っているワークフローは、後継の Claude Fable 5.2 などに選び直してください。
 
 ## 長時間ジョブ
 

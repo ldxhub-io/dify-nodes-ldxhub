@@ -94,6 +94,12 @@ parameters:
           zh_Hans: Azure OpenAI GPT-6 Luna
           pt_BR: Azure OpenAI GPT-6 Luna
           ja_JP: Azure OpenAI GPT-6 Luna
+      - value: google/gemini-4-carbon
+        label:
+          en_US: Google Gemini 4 Carbon
+          zh_Hans: Google Gemini 4 Carbon
+          pt_BR: Google Gemini 4 Carbon
+          ja_JP: Google Gemini 4 Carbon
       - value: google/gemini-4-argon
         label:
           en_US: Google Gemini 4 Argon
@@ -130,12 +136,12 @@ parameters:
           zh_Hans: Claude Haiku 5.5
           pt_BR: Claude Haiku 5.5
           ja_JP: Claude Haiku 5.5
-      - value: anthropic/claude-fable-5-1
+      - value: anthropic/claude-fable-5-2
         label:
-          en_US: Claude Fable 5.1
-          zh_Hans: Claude Fable 5.1
-          pt_BR: Claude Fable 5.1
-          ja_JP: Claude Fable 5.1
+          en_US: Claude Fable 5.2
+          zh_Hans: Claude Fable 5.2
+          pt_BR: Claude Fable 5.2
+          ja_JP: Claude Fable 5.2
       - value: bedrock/global.amazon.nova-2-lite-v1:0
         label:
           en_US: Amazon Nova 2 Lite (Bedrock)
