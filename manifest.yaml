@@ -1,4 +1,4 @@
-version: 0.0.22
+version: 0.0.23
 type: plugin
 author: ldxhub-io
 name: ldxhub
@@ -28,7 +28,7 @@ plugins:
   tools:
   - provider/ldxhub.yaml
 meta:
-  version: 0.0.22
+  version: 0.0.23
   arch:
   - amd64
   - arm64
