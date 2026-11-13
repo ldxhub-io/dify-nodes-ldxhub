@@ -106,12 +106,12 @@ parameters:
           zh_Hans: Google Gemini 4 Argon
           pt_BR: Google Gemini 4 Argon
           ja_JP: Google Gemini 4 Argon
-      - value: google/gemini-3.8-flash
+      - value: google/gemini-4-hydrogen
         label:
-          en_US: Google Gemini 3.8 Flash
-          zh_Hans: Google Gemini 3.8 Flash
-          pt_BR: Google Gemini 3.8 Flash
-          ja_JP: Google Gemini 3.8 Flash
+          en_US: Google Gemini 4 Hydrogen
+          zh_Hans: Google Gemini 4 Hydrogen
+          pt_BR: Google Gemini 4 Hydrogen
+          ja_JP: Google Gemini 4 Hydrogen
       - value: google/gemini-3.5-flash-lite
         label:
           en_US: Google Gemini 3.5 Flash-Lite
