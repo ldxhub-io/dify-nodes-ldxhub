@@ -14,6 +14,7 @@ When you use this plugin, the following data is transmitted to LDX hub servers (
 - **Text content** you specify (system prompts, custom instructions, example outputs)
 - **Configuration parameters** (model selection, language codes, etc.)
 - **Your API key** is sent in the `Authorization` header for authentication
+- **The plugin name and version** are sent in the `X-LDXhub-Client` header (for example, `dify-plugin/0.0.25`) so that LDX hub can tell jobs from this plugin apart from other API clients
 
 ### Data Storage on LDX hub Servers
 
