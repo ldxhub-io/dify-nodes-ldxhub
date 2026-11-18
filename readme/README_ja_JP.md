@@ -91,7 +91,7 @@ RefineLoop は StructFlow と同じ反復改善エンジンの上に作られて
 
 XLIFF のタグ整合性（`<ph>`, `<bpt>`, `<ept>`, `<it>` など）は各リビジョン後に検証されます。リビジョンがタグ構造を壊した場合、そのリビジョンは失敗扱いになり、次のリビジョンで再挑戦します。最終的な XLIFF は CAT ツールにそのまま取り込める状態を保ちます。
 
-**実測ベンチマーク:** BERT 論文の翻訳（原文約 65,000 文字、XLIFF タグ込みで約 145,000 文字）を Gemini 3.5 Flash と `max_revisions=6` で改善した結果、Dify Cloud 上でアップロード・ダウンロードを含めて **4 分 9 秒** で完走しました。実所要時間はモデル・コンテンツ・収束挙動によって変動します。
+**実測ベンチマーク:** BERT 論文の翻訳（原文約 65,000 文字、XLIFF タグ込みで約 145,000 文字）を Gemini 3.5 Flash と `max_revisions=6` で改善した結果、Dify Cloud 上でアップロード・ダウンロードを含めて **4 分 9 秒** で完走しました。2026 年 5 月の実測で、Gemini 3.5 Flash はその後 LDX hub での提供を終えています。実所要時間はモデル・コンテンツ・収束挙動によって変動します。
 
 ![RefineLoop が 4 m 9.156 s で完走したテスト実行のトレース](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/run.png)
 
