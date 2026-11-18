@@ -93,7 +93,7 @@ That means the number of engine invocations is bounded by `(language pairs × re
 
 XLIFF tag integrity (`<ph>`, `<bpt>`, `<ept>`, `<it>`, etc.) is validated after every revision. If a revision breaks the tag structure, that revision is marked as failed and the next round retries — your final XLIFF stays compatible with your CAT tool.
 
-**Real-world benchmark:** A translation of the BERT paper (about 65,000 source characters; approximately 145,000 with XLIFF tags) was refined with Gemini 3.5 Flash and `max_revisions=6` in **4 minutes 9 seconds** end-to-end on Dify Cloud, including upload and download. Actual time varies by model, content, and convergence behavior.
+**Real-world benchmark:** A translation of the BERT paper (about 65,000 source characters; approximately 145,000 with XLIFF tags) was refined with Gemini 3.5 Flash and `max_revisions=6` in **4 minutes 9 seconds** end-to-end on Dify Cloud, including upload and download. This was measured in May 2026; LDX hub has since retired Gemini 3.5 Flash. Actual time varies by model, content, and convergence behavior.
 
 ![Test run trace showing RefineLoop completed in 4 m 9.156 s](https://raw.githubusercontent.com/ldxhub-io/dify-nodes-ldxhub/main/_assets/screenshots/run.png)
 

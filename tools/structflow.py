@@ -8,6 +8,11 @@ import requests
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
+# Sent to LDX hub as the X-LDXhub-Client header so that jobs from this plugin can be
+# told apart from other API clients. Only the plugin name and version are sent.
+# Keep the version in step with manifest.yaml.
+LDXHUB_CLIENT = "dify-plugin/0.0.25"
+
 
 class StructFlowTool(Tool):
     POLL_INTERVAL = 5
@@ -21,14 +26,17 @@ class StructFlowTool(Tool):
 
         base_url = self.runtime.credentials.get("base_url", "https://gw.ldxhub.io").rstrip("/")
 
-        headers = {"Authorization": f"Bearer {api_key}"}
+        headers = {"Authorization": f"Bearer {api_key}", "X-LDXhub-Client": LDXHUB_CLIENT}
 
         file_obj = tool_parameters.get("file")
         if file_obj is None:
             yield self.create_text_message("File is required.")
             return
 
-        model = tool_parameters.get("model", "google/gemini-3-flash-preview")
+        model = (tool_parameters.get("model") or "").strip()
+        if not model:
+            yield self.create_text_message("model is required.")
+            return
 
         system_prompt = (tool_parameters.get("system_prompt") or "").strip()
         if not system_prompt:
