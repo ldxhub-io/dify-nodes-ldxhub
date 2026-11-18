@@ -138,6 +138,8 @@ The model lineup is maintained dynamically on the LDX hub side, but the plugin e
 
 **Version 0.0.24:** Gemini 4 Hydrogen was added. The Gemini 3.8 Flash option was removed because LDX hub retires that model on 2026-11-27. Workflows that use Gemini 3.8 Flash need to select another model, such as its successor, Gemini 4 Hydrogen.
 
+**Version 0.0.25:** GPT-6.2 Astra and GPT-6.2 Sol (including Azure-hosted) were added. The GPT-6.1 Sol and GPT-6 Astra options (including Azure-hosted) were removed because LDX hub retires those models on 2026-12-02. Workflows that use GPT-6.1 Sol or GPT-6 Astra need to select another model, such as their successors, GPT-6.2 Sol and GPT-6.2 Astra.
+
 ## Long-Running Jobs
 
 The plugin polls the LDX hub API for job completion. For typical workloads this is sufficient — the BERT paper benchmark above completed in about 4 minutes.
