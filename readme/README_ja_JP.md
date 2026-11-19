@@ -123,7 +123,7 @@ API キーは Dify によって暗号化（PKCS1_OAEP）されてワークスペ
 両ツールとも以下のプロバイダーのモデルに対応しています。
 
 - OpenAI GPT シリーズ（フラッグシップから軽量系まで、Azure 経由含む）
-- Google Gemini シリーズ（Carbon、Argon、Hydrogen、Flash-Lite）
+- Google Gemini シリーズ（Carbon、Argon、Neon、Hydrogen、Flash-Lite）
 - Anthropic Claude シリーズ（Fable、Opus、Sonnet、Haiku）
 - Amazon Nova（Bedrock 経由）
 - xAI Grok
@@ -137,6 +137,8 @@ API キーは Dify によって暗号化（PKCS1_OAEP）されてワークスペ
 **バージョン 0.0.24:** Gemini 4 Hydrogen を足しました。LDX hub が 2026-11-27 に Gemini 3.8 Flash の提供を終えるので、その選択肢を外しました。Gemini 3.8 Flash を使っているワークフローは、後継の Gemini 4 Hydrogen などに選び直してください。
 
 **バージョン 0.0.25:** GPT-6.2 Astra と GPT-6.2 Sol（Azure 経由を含む）を足しました。LDX hub が 2026-12-02 に GPT-6.1 Sol と GPT-6 Astra の提供を終えるので、その選択肢（Azure 経由を含む）を外しました。GPT-6.1 Sol・GPT-6 Astra を使っているワークフローは、後継の GPT-6.2 Sol・GPT-6.2 Astra などに選び直してください。
+
+**バージョン 0.0.26:** Gemini 4 Neon を足しました。
 
 ## 長時間ジョブ
 

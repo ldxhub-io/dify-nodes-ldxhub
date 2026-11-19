@@ -11,7 +11,7 @@ from dify_plugin.entities.tool import ToolInvokeMessage
 # Sent to LDX hub as the X-LDXhub-Client header so that jobs from this plugin can be
 # told apart from other API clients. Only the plugin name and version are sent.
 # Keep the version in step with manifest.yaml.
-LDXHUB_CLIENT = "dify-plugin/0.0.25"
+LDXHUB_CLIENT = "dify-plugin/0.0.26"
 
 
 class RefineLoopTool(Tool):
