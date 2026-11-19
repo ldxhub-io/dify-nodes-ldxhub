@@ -125,7 +125,7 @@ Your API key is encrypted by Dify (PKCS1_OAEP) and stored within your workspace.
 Both tools currently support models from:
 
 - OpenAI GPT series (flagship to lightweight variants, including Azure-hosted)
-- Google Gemini series (Carbon, Argon, Hydrogen, and Flash-Lite)
+- Google Gemini series (Carbon, Argon, Neon, Hydrogen, and Flash-Lite)
 - Anthropic Claude series (Fable, Opus, Sonnet, and Haiku)
 - Amazon Nova (Bedrock)
 - xAI Grok
@@ -139,6 +139,8 @@ The model lineup is maintained dynamically on the LDX hub side, but the plugin e
 **Version 0.0.24:** Gemini 4 Hydrogen was added. The Gemini 3.8 Flash option was removed because LDX hub retires that model on 2026-11-27. Workflows that use Gemini 3.8 Flash need to select another model, such as its successor, Gemini 4 Hydrogen.
 
 **Version 0.0.25:** GPT-6.2 Astra and GPT-6.2 Sol (including Azure-hosted) were added. The GPT-6.1 Sol and GPT-6 Astra options (including Azure-hosted) were removed because LDX hub retires those models on 2026-12-02. Workflows that use GPT-6.1 Sol or GPT-6 Astra need to select another model, such as their successors, GPT-6.2 Sol and GPT-6.2 Astra.
+
+**Version 0.0.26:** Gemini 4 Neon was added.
 
 ## Long-Running Jobs
 

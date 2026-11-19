@@ -106,6 +106,12 @@ parameters:
           zh_Hans: Google Gemini 4 Argon
           pt_BR: Google Gemini 4 Argon
           ja_JP: Google Gemini 4 Argon
+      - value: google/gemini-4-neon
+        label:
+          en_US: Google Gemini 4 Neon
+          zh_Hans: Google Gemini 4 Neon
+          pt_BR: Google Gemini 4 Neon
+          ja_JP: Google Gemini 4 Neon
       - value: google/gemini-4-hydrogen
         label:
           en_US: Google Gemini 4 Hydrogen
